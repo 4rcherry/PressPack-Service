@@ -3,6 +3,7 @@ const express       = require('express');
 const path          = require('path');
 const cookieParser  = require('cookie-parser');
 const logger        = require('morgan');
+const bodyParser    = require('body-parser');
 const cors          = require('cors');
 const mongoose      = require('mongoose');
 
@@ -29,7 +30,18 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', '*');
+    if (req.method === 'OPTIONS') {
+        res.header('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE');
+        return res.status(200).json({} )
+    }
+    next()
+});
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
