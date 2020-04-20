@@ -1,7 +1,7 @@
 const mongoose  = require('mongoose');
 const Schema    = mongoose.Schema({
     supplier_id: {
-        type: ObjectId
+        type: Object
     },
     name: {
         type: String

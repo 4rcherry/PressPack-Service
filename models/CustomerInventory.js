@@ -1,10 +1,10 @@
 const mongoose  = require('mongoose');
 const Schema    = mongoose.Schema({
     product_id: {
-        type: ObjectId
+        type: Object
     },
     location: {
-        type: ObjectId
+        type: Object
     },
     in: {
         type: Number

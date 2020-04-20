@@ -7,6 +7,7 @@ const bodyParser    = require('body-parser');
 const cors          = require('cors');
 const mongoose      = require('mongoose');
 
+
 const indexRouter               = require('./routes/index');
 const usersRouter               = require('./routes/users');
 const supplierRouter            = require('./routes/Suppliers');
@@ -21,6 +22,7 @@ const customerInventoryRouter   = require('./routes/CusomerInventories');
 const customerStorageRouter     = require('./routes/CustomerStorage');
 
 const app = express();
+require('dotenv').config();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -72,4 +74,12 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+mongoose.connect(
+    process.env.DB_ACCESS,
+    { useNewUrlParser: true, useUnifiedTopology: true},
+    () => console.log('[INFO]: Database Server Connected!')
+);
+
 module.exports = app;
+
+console.log('[INFO]: Application Server Running on ' + process.env.PORT);
