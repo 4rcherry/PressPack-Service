@@ -4,14 +4,14 @@ const Schema    = mongoose.Schema({
     material_id: {
       type: ObjectId
     },
-    location: {
-        type: String
+    storage_id: {
+        type: ObjectId
+    },
+    quantity: {
+        type: Number
     },
     in: {
-        type: Number
-    },
-    out: {
-        type: Number
+        type: Boolean
     },
     created: {
         type: Date

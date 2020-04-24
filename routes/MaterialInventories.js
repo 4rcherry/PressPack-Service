@@ -25,7 +25,9 @@ router.post('/', async (req, res) => {
     try {
         const data = new Data({
             material_id:    req.body.material_id,
-            location:       req.body.location,
+            storage_id:     req.body.storage_id,
+            quantity:       req.body.quantity,
+            in:             req.body.in,
             created:        date,
             updated:        date
         });
@@ -36,28 +38,15 @@ router.post('/', async (req, res) => {
     }
 });
 
-router.patch('/:id/in', async (req, res) => {
+router.patch('/:id', async (req, res) => {
     try {
         const updated = await Data.updateOne(
             { _id: req.params.id },
             { $set: {
-                    in:         req.body.in,
-                    updated:    date
-                }
-            }
-        );
-        res.json(updated);
-    } catch (e) {
-        res.status(400).send(e)
-    }
-});
-
-router.patch('/:id/out', async (req, res) => {
-    try {
-        const updated = await Data.updateOne(
-            { _id: req.params.id },
-            { $set: {
-                    in:         req.body.out,
+                    material_id:    req.body.material_id,
+                    storage_id:     req.body.storage_id,
+                    quantity:       req.body.quantity,
+                    in:             req.body.in,
                     updated:    date
                 }
             }
