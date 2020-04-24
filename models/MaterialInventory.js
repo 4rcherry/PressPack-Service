@@ -1,10 +1,11 @@
 const mongoose  = require('mongoose');
+const {ObjectId} = require('mongodb');
 const Schema    = mongoose.Schema({
     material_id: {
-      type: Object
+      type: ObjectId
     },
     location: {
-        type: Object
+        type: String
     },
     in: {
         type: Number

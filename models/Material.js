@@ -1,7 +1,8 @@
 const mongoose  = require('mongoose');
+const {ObjectId} = require('mongodb');
 const Schema    = mongoose.Schema({
     supplier_id: {
-        type: Object
+        type: ObjectId
     },
     name: {
         type: String
