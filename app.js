@@ -49,14 +49,14 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/supplier', supplierRouter);
 app.use('/material', materialRouter);
-app.use('/material/inventory', materialInventoryRouter);
-app.use('/material/storage', materialStorageRouter);
+app.use('/material-inventory', materialInventoryRouter);
+app.use('/material-storage', materialStorageRouter);
 app.use('/product', productRouter);
-app.use('/product/inventory', productInventoryRouter);
-app.use('/product/storage', productStorageRouter);
+app.use('/product-inventory', productInventoryRouter);
+app.use('/product-storage', productStorageRouter);
 app.use('/customer', customerRouter);
-app.use('/customer/inventory', customerInventoryRouter);
-app.use('/customer/storage', customerStorageRouter);
+app.use('/customer-inventory', customerInventoryRouter);
+app.use('/customer-storage', customerStorageRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
