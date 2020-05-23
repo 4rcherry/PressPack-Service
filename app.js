@@ -80,6 +80,6 @@ mongoose.connect(
     () => console.log('[INFO]: Database Server Connected!')
 );
 
-module.exports = app;
-
 console.log('[INFO]: Application Server Running on ' + process.env.PORT);
+
+module.exports = app;
